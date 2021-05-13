@@ -14,14 +14,10 @@ void linked_list_init(linked_list* list) {
 // O(|n-newSize|)
 void linked_list_resize(linked_list* list, size_t newSize, value_t value) { 
     size_t listSize = list->size;
-
     node *currentNode = list->last;
+    
     for (int index = 0; index <= abs(listSize-newSize); index++) {
-        if ((listSize-newSize) < 0) {
-            free(currentNode);
-        else {
-            linked_list_push_front(list, value);
-        }
+        if ((listSize-newSize) < 0) free(currentNode) else linked_list_push_front(list, value);
         currentNode = currentNode->prev;
     }
 }
