@@ -87,13 +87,13 @@ value_t linked_list_pop_back(linked_list* list);
 
 /**
  * Returns the element at the given index of a linked_list.
- * Assume idx is in the range [0, size)
+ * Assume idx is in the range [0, size])
  */
 value_t linked_list_get(const linked_list* list, size_t idx);
 
 /**
  * Alters the element at the given index of a linked_list and returns the old value.
- * Assume idx is in the range [0, size)
+ * Assume idx is in the range [0, size])
  */
 value_t linked_list_set(linked_list* list, size_t idx, value_t newValue);
 
