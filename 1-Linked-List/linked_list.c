@@ -16,7 +16,7 @@ void linked_list_resize(linked_list* list, size_t newSize, value_t value) {
     size_t listSize = list->size;
 
     node *currentNode = list->last;
-    for (int index; index <= abs(listSize-newSize); index+=) {
+    for (int index = 0; index <= abs(listSize-newSize); index++) {
         if ((listSize-newSize) < 0) {
             free(currentNode);
         else {
