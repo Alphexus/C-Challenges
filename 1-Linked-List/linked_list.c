@@ -1,14 +1,14 @@
 #include <stdlib.h>
 #include <stdio.h> 
-#include "table.h"
+#include "linked_list.h"
 // stdio.h for NULL
 
 // O(1)
 void linked_list_init(linked_list* list) { 
-    linked_list = (linked_list*) malloc(sizeof(linked_list));
-    linked_list->first = NULL;
-    linked_list->last = NULL;
-    listed_list->size = 0;
+    list = (linked_list*) malloc(sizeof(linked_list));
+    list->first = NULL;
+    list->last = NULL;
+    list->size = 0;
 }
 
 // O(|n-newSize|)
@@ -17,14 +17,18 @@ void linked_list_resize(linked_list* list, size_t newSize, value_t value) {
     node *currentNode = list->last;
     
     for (int index = 0; index <= abs(listSize-newSize); index++) {
-        if ((listSize-newSize) < 0) free(currentNode) else linked_list_push_front(list, value);
+        if ((listSize-newSize) < 0) {
+            free(currentNode);
+        } else { 
+            linked_list_push_front(list, value);
+        }
         currentNode = currentNode->prev;
     }
 }
 
 // O(1)
 void linked_list_push_front(linked_list* list, value_t value) { 
-    node *front = list.first;
+    node *front = list->first;
     node *newFront = (node*) malloc(sizeof(node));
     
     if (newFront == NULL) { 
@@ -43,7 +47,7 @@ void linked_list_push_front(linked_list* list, value_t value) {
 
 // O(1)
 void linked_list_push_back(linked_list* list, value_t value) {
-    node *back = list.last;
+    node *back = list->last;
     node *newBack = (node*) malloc(sizeof(node));
     
     if (newBack == NULL) { 
